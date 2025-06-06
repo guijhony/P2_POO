@@ -11,10 +11,15 @@ class Program
 
         Produto produto1 = new Produto("Notebook", 3000.00m, "Eletronico");
         Produto produto2 = new Produto("Geladeira", 5000m, "Eletrodomestico");
-
         Produto produto3 = new Produto("Boneca", 100m, "Brinquedo");
-        
-        Pedido pedido1 = new Pedido(cliente1, new List<Produto> { produto1, produto2 });
+
+        var itensPedido1 = new List<ItemPedido>
+        {
+            new ItemPedido(produto1, 1),
+            new ItemPedido(produto2, 2)
+        };
+
+        Pedido pedido1 = new Pedido(cliente1, itensPedido1);
 
         var pedidos = new List<Pedido> { pedido1 };
 

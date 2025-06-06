@@ -17,11 +17,11 @@ namespace P2_POO
                 Console.WriteLine($"Cliente: {pedido.Cliente.Nome}");
                 Console.WriteLine($"Data: {pedido.Data}");
 
-                foreach (var produto in pedido.Produtos)
+                foreach (var item in pedido.Itens)
                 {
                     Console.WriteLine("Produto:");
 
-                    Console.WriteLine($" {produto.Nome} - Preço: {produto.Preco:C} - Categoria: {produto.Categoria}");
+                     Console.WriteLine($"{item.Produto.Nome} - Preço Unitário: {item.Produto.Preco:C} - Quantidade: {item.Quantidade} - Total: {item.Subtotal:C}");                
                 }
 
                 Console.WriteLine($"Valor Total: {pedido.ValorTotal:C}");

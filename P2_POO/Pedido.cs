@@ -11,21 +11,21 @@ namespace P2_POO
     {
         public Guid Id { get; private set; }
         public Cliente Cliente { get; private set; }
-        public List<Produto> Produtos { get; private set; }
+        public List<ItemPedido> Itens { get; private set; }
         public DateTime Data { get; private set; }
-        public decimal ValorTotal => Produtos.Sum(p => p.Preco);
+        public decimal ValorTotal => Itens.Sum(i => i.Subtotal);
 
-        public Pedido(Cliente cliente, List<Produto> produtos)
+        public Pedido(Cliente cliente, List<ItemPedido> itens)
         {
             if (cliente == null)
                 throw new ArgumentException(nameof(cliente));
 
-            if (produtos == null || produtos.Count <= 0)
+            if (itens == null || itens.Count <= 0)
                 throw new ArgumentException("O pedido deve ter pelo menos 1 produto");
 
             Id = Guid.NewGuid();
             Cliente = cliente;
-            Produtos = new List<Produto>(produtos);
+            Itens = new List<ItemPedido>(itens);
             Data = DateTime.Now;
         }
     }
