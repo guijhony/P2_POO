@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace P2_POO
 {
-    class Cliente
+    public class Cliente
     {
         public Guid Id { get; private set; }
         public string Nome { get; private set; }

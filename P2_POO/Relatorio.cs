@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace P2_POO
 {
-    class Relatorio
+   public class Relatorio
     {
         public void GerarRelatorio(List<Pedido> pedidos)
         {
