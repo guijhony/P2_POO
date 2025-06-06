@@ -19,7 +19,7 @@ namespace P2_POO
 
                 foreach (var produto in pedido.Produtos)
                 {
-                    Console.WriteLine("Produtos:");
+                    Console.WriteLine("Produto:");
 
                     Console.WriteLine($" {produto.Nome} - Preço: {produto.Preco:C} - Categoria: {produto.Categoria}");
                 }
