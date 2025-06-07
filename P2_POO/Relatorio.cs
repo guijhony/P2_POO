@@ -8,7 +8,7 @@ namespace P2_POO
 {
    public class Relatorio
     {
-        public void GerarRelatorio(List<Pedido> pedidos)
+        public void GerarRelatorio(List<Pedido> pedidos , IDesconto? desconto = null)
         {
 
             foreach (var pedido in pedidos)
@@ -21,10 +21,18 @@ namespace P2_POO
                 {
                     Console.WriteLine("Produto:");
 
-                     Console.WriteLine($"{item.Produto.Nome} - Preço Unitário: {item.Produto.Preco:C} - Quantidade: {item.Quantidade} - Total: {item.Subtotal:C}");                
+                    Console.WriteLine($"{item.Produto.Nome} - Preço Unitário: {item.Produto.Preco:C} - Quantidade: {item.Quantidade} - Total: {item.Subtotal:C}");                
                 }
 
-                Console.WriteLine($"Valor Total: {pedido.ValorTotal:C}");
+                Console.WriteLine($"SubTotal: {pedido.ValorTotal:C}\n");
+
+                if (desconto != null)
+                {
+                    decimal valorDesconto = desconto.CalcularDesconto(pedido);
+                    Console.WriteLine($"Desconto Aplicado: {valorDesconto:C}");
+                    Console.WriteLine($"Total com Desconto: {(pedido.ValorTotal - valorDesconto):C}\n-------------------------------------------");
+
+                }
             }
         }
     }

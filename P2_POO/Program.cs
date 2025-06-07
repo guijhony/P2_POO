@@ -19,12 +19,25 @@ class Program
             new ItemPedido(produto2, 2)
         };
 
-        Pedido pedido1 = new Pedido(cliente1, itensPedido1);
+        var itensPedido2 = new List<ItemPedido>
+        {
+            new ItemPedido(produto2, 1),
+            new ItemPedido(produto3, 3)
+        };
 
-        var pedidos = new List<Pedido> { pedido1 };
+        Pedido pedido1 = new Pedido(cliente1, itensPedido1);
+        Pedido pedido2 = new Pedido(cliente1, itensPedido2);
+
+        DescontoCategoria desconto1 = new DescontoCategoria("Eletronico", 0.10m);
+        DescontoCategoria desconto2 = new DescontoCategoria("Eletrodomestico", 0.30m);
+
+        var pedidos = new List<Pedido> { pedido1, pedido2};
 
         var relatorio = new Relatorio();
-        relatorio.GerarRelatorio(pedidos);
+        relatorio.GerarRelatorio(new List<Pedido> { pedido1 }, desconto1);
+        relatorio.GerarRelatorio(new List<Pedido> { pedido2 });
+
+
     }
 }
 
